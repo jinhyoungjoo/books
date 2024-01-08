@@ -1,0 +1,151 @@
+\chapter{Linear Algebra}
+
+\section{Vectors}
+\begin{definition}[Vectors]
+    Vectors are special objects that can be added together and multiplied
+    by scalars to produce another object of the same kind. Any object that
+    satisfies these two properties can be considered a vector.
+\end{definition}
+
+\begin{definition}[Groups]
+    A group $(G, \circledtimes)$ is a set $G$ and an operation $\circledtimes : G\times G \rightarrow G$
+    where the following properties hold.
+    \begin{enumerate}
+        \item{Closure of $G$ under $\circledtimes$:
+            $\forall x, y\in G, x\circledtimes y\in G$}
+        \item{Associativity:
+            $\forall x, y,z\in G, (x\circledtimes y)\circledtimes z = x\circledtimes(y\circledtimes z)$}
+        \item{Neutral Element: 
+            $\exists e\in G, \forall x\in G, x\circledtimes e = x\text{ and } e\circledtimes x = x$}
+        \item{Inverse Element:
+            $\forall x\in G,\exists y\in G, x\circledtimes y = e\in G \text{ and } y \circledtimes x = e, \text{e is the neutral element.}$}
+    \end{enumerate}
+    The group is an Abelian group if $\forall x, y\in G, x\circledtimes y = y\circledtimes x$
+    (commutative).
+\end{definition}
+
+\begin{definition}[Vector Spaces]
+    A real-valued vector space $(V, +, \cdot)$ is a set V with two operations,
+    $+: V \times V \rightarrow V$ and $\cdot : \mathbb{R} \times V \rightarrow V$ where
+    the following conditions hold.
+    \begin{enumerate}
+        \item{}
+        \item{}
+        \item{}
+        \item{}
+    \end{enumerate}
+\end{definition}
+
+\section{Linear Systems}
+
+\begin{definition}[System of Linear Equations]
+    A system of linear equations include multiple linear equations that
+    may lead to a solution, or no solutions, or infinitely many solutions.
+    \[
+        \begin{split}
+            a_{11}x_1 + &\cdots + a_{1n}x_n = b_1 \\
+                        & \vdots \\
+            a_{m1}x_1 + &\cdots + a_{mn}x_n = b_m
+        \end{split}
+    \]
+    A system of linear equations can be transformed into a matrix form.
+    \[
+        Ax = b, A\in\mathbb{R}^{m\times n}, x\in\mathbb{R}^{n\times 1}, y\in\mathbb{m\times 1}
+    \]
+\end{definition}
+
+\section{Matrices}
+\begin{definition}[Matrix]
+    A real-valued $m\times n$ matrix $A$ is an $mn$-tuple of elements
+    $a_{ij}, i=1,\cdots, m, j=1, \cdots, n$,
+    ordered in a rectangular scheme consisting of $m$ rows and $n$ columns.
+    \[
+        A = \begin{bmatrix}
+            a_{11} & a_{12} & \cdots & a_{1n} \\
+            a_{21} & a_{22} & \cdots & a_{2n} \\
+            \vdots & \vdots &  & \vdots \\
+            a_{m1} & a_{m2} & \cdots & a_{mn} \\
+        \end{bmatrix}, a_{ij}\in\mathbb{R}
+    \]
+    Operations performed on matrices include:
+    \begin{itemize}
+        \item{Matrix Addition: $A + B$}
+        \item{Matrix Multiplication: $AB$}
+        \item{Hadamard Product (Element-wise multiplication): $(A\circleddot B)_{ij} = A_{ij}B_{ij}$}
+    \end{itemize}
+    Properties of matrices include:
+    \begin{itemize}
+        \item{Associativity:
+                \[
+                    \forall A\in\mathbb{R}^{m\times n},
+                    \forall B\in\mathbb{R}^{n\times p},
+                    \forall C\in\mathbb{R}^{p\times q}, 
+                    (AB)C=A(BC)
+                \]
+            }
+        \item{Distributivity:
+                \[
+                    \begin{split}
+                        \forall A, B\in\mathbb{R}^{m\times n},
+                        \forall C, D\in\mathbb{R}^{n\times p}, & (A + B)C = AC + BC \\
+                                                               & A(C + D) = AC + AD
+                    \end{split}
+                \]
+            }
+        \item{Multiplication with the identity matrix:
+                \[
+                    \forall A\in\mathbb{R}^{m\times n}, I_m A = AI_n = A 
+                \]
+            }
+    \end{itemize}
+\end{definition}
+
+\begin{definition}[Inverse Matrix]
+    Given a square matrix $A\in\mathbb{R}^{n\times n}$, the inverse matrix of $A$
+    is denoted as $A^{-1}$ and has the property of $AB=BA=I_n$. Not all matrices
+    have an inverse, and those that do are called regular/invertible/nonsingular
+    matrices. Otherwise, they are called noninvertible/singular.
+\end{definition}
+
+\begin{definition}[Transpose Matrix]
+    Given a square matrix $A\in\mathbb{R}^{n\times n}$, the transpose of $A$
+    is denoted as $A^\intercal$, and is a matrix that has the rows and columns
+    interchanged ($B_{ij}=A_{ji}$). A matrix is symmetric if $A=A^\intercal$.
+\end{definition}
+\begin{svgraybox}
+    Some important properties of inverses and transposes are as below.
+    \[
+        \begin{split}
+            AA^{-1} &= A^{-1}A \\
+            (AB)^{-1}&= B^{-1}A^{-1} \\
+            (A^\intercal)^\intercal &= A\\
+            (AB)^\intercal &= B^\intercal A^\intercal\\
+            (A + B)^\intercal &= A^\intercal + B^\intercal
+        \end{split}
+    \]
+\end{svgraybox}
+
+
+
+
+
+
+% \begin{equation} a^2 + b^2 = c^2 \end{equation}
+% \begin{eqnarray}
+% \left|\nabla U_{\alpha}^{\mu}(y)\right| &\le&\frac1{d-\alpha}\int
+% \left|\nabla\frac1{|\xi-y|^{d-\alpha}}\right|\,d\mu(\xi) =
+% \int \frac1{|\xi-y|^{d-\alpha+1}} \,d\mu(\xi)\qquad  \\ % Newline
+% &=&(d-\alpha+1) \int\limits_{d(y)}^\infty
+% \frac{\mu(B(y,r))}{r^{d-\alpha+2}}\,dr \le (d-\alpha+1)
+% \int\limits_{d(y)}^\infty \frac{r^{d-\alpha}}{r^{d-\alpha+2}}\,dr
+% \end{eqnarray}
+
+% \begin{figure}[b]
+% \includegraphics[scale=.65]{figure}
+% \caption{}
+% \end{figure}
+
+% \begin{quotation} \end{quotation}
+
+% \begin{theorem} Theorem text goes here. \end{theorem}
+% \begin{proof} Proof text goes here. \qed \end{proof}
